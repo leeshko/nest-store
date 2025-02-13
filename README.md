@@ -26,7 +26,7 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+## Project start
 
 ```bash
 $ yarn install
@@ -36,7 +36,7 @@ $ yarn install
 
 ```bash
 # development
-$ yarn run start
+$ yarn start
 
 # watch mode
 $ yarn run start:dev
@@ -57,6 +57,17 @@ $ yarn run test:e2e
 # test coverage
 $ yarn run test:cov
 ```
+
+## Run prisma
+
+```bash
+# generate
+$ yarn prisma generate
+```
+
+
+
+
 
 ## Deployment
 
