@@ -1,5 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { ClientProxy, ClientProxyFactory } from '@nestjs/microservices';
+import {
+  ClientProxy,
+  ClientProxyFactory,
+  Transport,
+} from '@nestjs/microservices';
 
 @Injectable()
 export class AppService {
@@ -14,6 +18,6 @@ export class AppService {
     });
   }
   sendMessage() {
-    this.client.emit('message', 'New order');
+    this.client.emit('message', 'New order #2342');
   }
 }
