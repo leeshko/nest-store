@@ -2,7 +2,6 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from '../src/app.module';
 import * as request from 'supertest';
-import { response } from 'express';
 
 describe('FlowersController (e2e)', () => {
   let app: INestApplication;
@@ -13,7 +12,7 @@ describe('FlowersController (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    // app.useGlobalPipes(new ValidationPipe());
+    app.useGlobalPipes(new ValidationPipe());
     await app.init();
   });
 
@@ -47,14 +46,14 @@ describe('FlowersController (e2e)', () => {
     return request(app.getHttpServer())
       .post('/flowers')
       .send({
-        name: 'Sunflower',
+        name: 'Sunflower2',
         color: 'Yellow',
         price: 8,
       })
       .expect((response) => {
-        console.log(22222222, response.statusCode);
-      });
-    // .expect((response) => response.body.name === 'Sunflower');
+        console.log('Status Code: ', response.statusCode);
+      })
+      .expect((response) => response.body.name === 'Sunflower');
   });
 
   afterAll(async () => {
